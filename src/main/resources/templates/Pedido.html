@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Pedir Produto</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Pedir Produto</h1>
+        <form th:action="@{/pedido}" method="post">
+            <div class="mb-3">
+                <label for="produto" class="form-label">Produto</label>
+                <select class="form-control" id="produto" th:name="produto.id">
+                    <option th:each="produto : ${produtos}" th:value="${produto.id}" th:text="${produto.nome}"></option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="quantidade" class="form-label">Quantidade</label>
+                <input type="number" class="form-control" id="quantidade" th:name="quantidade" required>
+            </div>
+            <div class="mb-3">
+                <label for="data" class="form-label">Data</label>
+                <input type="date" class="form-control" id="data" th:name="data" required>
+            </div>
+            <div class="mb-3">
+                <label for="valor" class="form-label">Valor</label>
+                <input type="number" class="form-control" id="valor" th:name="valor" step="0.01" required>
+            </div>
+            <div class="mb-3">
+                <label for="status" class="form-label">Status</label>
+                <select class="form-control" id="status" th:name="status">
+                    <option value="ABERTO">Aberto</option>
+                    <option value="ENCERRADO">Encerrado</option>
+                    <option value="CANCELADO">Cancelado</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Adicionar Pedido</button>
+        </form>
+    </div>
+</body>
+</html>

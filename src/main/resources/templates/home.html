@@ -1,10 +1,71 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .btn-adicionar {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 150px; /* Aumente a largura do botão */
+            height: 50px; /* Defina uma altura fixa para o botão */
+        }
+        .titulo {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            margin: 0; /* Remove margens padrão do h1 */
+        }
+    </style>
 </head>
 <body>
-<h1>Bem Vindo a Pagina Home</h1>
+
+    <div class="container">
+        <!-- Título no canto superior esquerdo -->
+        <h1 class="titulo">Bem-vindo</h1>
+        
+        <!-- Botão Adicionar -->
+        <a href="/home/adicionarProduto" class="btn btn-primary btn-adicionar">Adicionar</a>
+        
+        <div class="row mt-5">
+            <!-- Espaçamento entre o título e a lista -->
+            <h2 class="mt-4">Lista de Produtos</h2>
+            <table class="table table-striped mt-3">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Estoque</th>
+                        <th scope="col">Preço</th>
+                        <th scope="col">Ações</th> <!-- Coluna para ações -->
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="produto : ${produtos}">
+                        <td th:text="${produto.id}"></td>
+                        <td th:text="${produto.nome}"></td>
+                        <td th:text="${produto.estoque}"></td>
+                        <td th:text="${produto.preco}"></td>
+                        <td>
+                            <!-- Botão Editar -->
+                            <a th:href="@{/home/editarProduto/{id}(id=${produto.id})}" class="btn btn-primary">Editar</a>
+                            <!-- Botão Excluir -->
+                            <a th:href="@{/home/excluir/{id}(id=${produto.id})}" class="btn btn-danger">Excluir</a>
+							
+							<a th:href="@{/pedido/novo/{id}(id=${produto.id})}" class="btn btn-success">Pedir</a> 
+							                      
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

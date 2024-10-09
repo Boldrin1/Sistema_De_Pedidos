@@ -29,8 +29,8 @@ public class UsuarioController {
 
     @PostMapping("/salvar")
     public String salvarUsuario(@ModelAttribute Usuario usuario) {
-    	 System.out.println("Cargo do usuário: " + usuario.getTipoUsuario());
         usuarioService.salvarUsuario(usuario);  
         return "redirect:/home";  
     }
+    
 }

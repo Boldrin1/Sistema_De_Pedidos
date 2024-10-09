@@ -8,7 +8,7 @@ import com.sesi.repository.UsuarioRepository;
 @Service
 public class UsuarioService {
     
-	private UsuarioRepository usuarioRepository;
+	private final UsuarioRepository usuarioRepository;
 
 	public UsuarioService(UsuarioRepository usuarioRepository) {
 		this.usuarioRepository = usuarioRepository;
