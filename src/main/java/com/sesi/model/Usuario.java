@@ -1,6 +1,8 @@
 package com.sesi.model;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -16,6 +18,8 @@ public class Usuario {
 	private String nome;
 	private String email;
 	private String telefone;
+	
+	@Enumerated(EnumType.STRING)
 	private TipoUsuario tipoUsuario;
 	
 	
@@ -62,7 +66,7 @@ public class Usuario {
 	public TipoUsuario getTipoUsuario() {
 		return tipoUsuario;
 	}
-	public void setTipo(TipoUsuario tipoUsuario) {
+	public void setTipoUsuario(TipoUsuario tipoUsuario) {
 		this.tipoUsuario = tipoUsuario;
 	}
 	

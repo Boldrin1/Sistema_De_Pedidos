@@ -11,7 +11,7 @@ import com.sesi.model.Usuario;
 import com.sesi.service.UsuarioService;
 
 @Controller
-@RequestMapping
+@RequestMapping("/usuario")
 public class UsuarioController {
 
     private UsuarioService usuarioService;
@@ -27,8 +27,9 @@ public class UsuarioController {
         return "Registro";  
     }
 
-    @PostMapping
+    @PostMapping("/salvar")
     public String salvarUsuario(@ModelAttribute Usuario usuario) {
+    	 System.out.println("Cargo do usuário: " + usuario.getTipoUsuario());
         usuarioService.salvarUsuario(usuario);  
         return "redirect:/home";  
     }
