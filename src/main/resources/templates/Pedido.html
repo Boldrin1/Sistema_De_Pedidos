@@ -8,7 +8,7 @@
 <body>
     <div class="container mt-5">
         <h1>Pedir Produto</h1>
-        <form th:action="@{/pedido}" method="post">
+        <form th:action="@{/pedido/salvar}" method="post">
             <div class="mb-3">
                 <label for="produto" class="form-label">Produto</label>
                 <select class="form-control" id="produto" th:name="produto.id">
@@ -19,10 +19,10 @@
                 <label for="quantidade" class="form-label">Quantidade</label>
                 <input type="number" class="form-control" id="quantidade" th:name="quantidade" required>
             </div>
-            <div class="mb-3">
-                <label for="data" class="form-label">Data</label>
-                <input type="date" class="form-control" id="data" th:name="data" required>
-            </div>
+              <div class="form-group">
+                  <label for="data">Data</label>
+                   <input type="date" id="data" name="data" class="form-control" th:name="data" required>
+                 </div>
             <div class="mb-3">
                 <label for="valor" class="form-label">Valor</label>
                 <input type="number" class="form-control" id="valor" th:name="valor" step="0.01" required>

@@ -1,5 +1,6 @@
 package com.sesi.controller;
 
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,7 +24,7 @@ public class PedidoController {
         this.produtoService = produtoService;
     }
 
-    @GetMapping("/novo")
+    @GetMapping("/novo/{id}")
     public String novoPedido(Model model) {
         model.addAttribute("produtos", produtoService.listarProdutos());
         return "Pedido"; 

@@ -2,7 +2,7 @@ package com.sesi.model;
 
 import java.util.Date;
 
-
+import org.springframework.format.annotation.DateTimeFormat;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -10,7 +10,10 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
 
 @Entity
 public class Pedido {
@@ -19,12 +22,16 @@ public class Pedido {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	 
 	 @ManyToOne
      private Produto produto;
 	 
 	 private int quantidade;
 	 
+	 @DateTimeFormat(pattern = "yyyy-MM-dd")
+	 @Temporal(TemporalType.DATE)
 	 private Date data;
+	 
 	 
 	 private float valor;
 	 

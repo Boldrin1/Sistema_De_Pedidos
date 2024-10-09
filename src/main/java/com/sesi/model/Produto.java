@@ -1,9 +1,13 @@
 package com.sesi.model;
 
+import java.util.List;
+
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+
 
 @Entity
 public class Produto {
@@ -15,7 +19,8 @@ public class Produto {
 	private String nome;
 	private int estoque;
 	private float preco;
-	
+
+
 	
 	public Produto(Long id, String nome, int estoque, float preco) {
 		this.id = id;
